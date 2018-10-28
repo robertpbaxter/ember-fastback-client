@@ -1,0 +1,17 @@
+<div class="menu">
+  <div class="links">
+    {{#link-to "index" class="menu-index"}}
+    <em>Fastback: Ember Edition</em>
+    {{/link-to}}
+    {{#link-to "about" class="menu-about"}}
+    About
+    {{/link-to}}
+    {{!-- {{#link-to "assignments" class="menu-assignments"}}
+    Assignments
+    {{/link-to}} --}}
+    {{#link-to "login" class="menu-login"}}
+    Login
+    {{/link-to}}
+    <button {{action 'logout'}}>Log out</button>
+  </div>
+</div>

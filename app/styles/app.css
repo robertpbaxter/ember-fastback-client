@@ -1,0 +1,49 @@
+/***** GLOBAL STYLING *****/
+.ember-application {
+  margin: 0;
+}
+
+body {
+  background-color: #efefef;
+}
+
+/* Navbar */
+.navbar {
+  height: 2rem;
+  padding: 0.5em;
+  background-color: #31d57c;
+}
+
+.menu .links a,
+.menu .links a:visited {
+  color: #ffffff;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.menu .links a:hover {
+  cursor: pointer;
+}
+
+/* Body */
+
+/* Footer */
+
+.footer {
+  padding: 0.5em;
+  background-color: #31d57c;
+  color: #ffffff;
+  text-align: center;
+}
+
+/***** LOCAL STYLING *****/
+
+/* Index */
+.index {
+  text-align: center;
+}
+
+#tomster {
+  padding-left: 60px;
+  max-width: 300px;
+}
