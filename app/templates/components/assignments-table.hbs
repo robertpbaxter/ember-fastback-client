@@ -5,6 +5,8 @@
   <li>
     {{assignment.title}}, {{assignment.instructions}}
 
+    {{assignments-edit updatedTitle=assignment.title updatedInstructions=assignment.instructions edit=(action "editAssignment" assignment.id)}}
+
     {{button-with-confirmation warning="Are you sure you want to delete this assignment?" text='Delete'
     onConfirm=(action "deleteAssignment" assignment.id)}}
   </li>

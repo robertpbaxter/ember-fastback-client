@@ -3,11 +3,11 @@
   <form>
     <label>
       Title:
-      {{input type="text" value=newTitle placeholder="enter title"}}
+      {{input value=newTitle placeholder="enter title"}}
     </label>
     <label>
       Instructions:
-      {{input type="textarea" value=newInstructions placeholder="enter instructions"}}
+      {{textarea value=newInstructions placeholder="enter instructions"}}
     </label>
     <button type="submit" {{action "addAssignment"}}>Create</button>
   </form>

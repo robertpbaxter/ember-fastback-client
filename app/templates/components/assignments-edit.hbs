@@ -1,1 +1,17 @@
-{{yield}}
+<button {{action "openEditForm"}}>Edit</button>
+{{#if editShown}}
+<div class="assignmentEdit">
+  <form>
+    <label>
+      Title:
+      {{input value=updatedTitle}}
+    </label>
+    <label>
+      Instructions:
+      {{textarea value=updatedInstructions}}
+    </label>
+    <button type="submit" {{action "editAssignment"}}>Update</button>
+    <button {{action "closeEditForm"}}>Cancel</button>
+  </form>
+</div>
+{{/if}}

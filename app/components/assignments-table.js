@@ -2,7 +2,6 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 
 export default Component.extend({
-  //loads the service in file /app/services/assignments
   assignmentService: service("assignments"),
 
   init() {
@@ -15,6 +14,9 @@ export default Component.extend({
   },
 
   actions: {
+    editAssignment(id,title,instructions){
+      this.assignmentService.editAssignment(id,title,instructions)
+    },
     deleteAssignment(id) {
       this.assignmentService.deleteAssignment(id);
     }

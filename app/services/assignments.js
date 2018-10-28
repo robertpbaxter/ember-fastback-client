@@ -44,8 +44,20 @@ export default Service.extend({
       .then(this.getAssignments());
   },
 
-  editAssignment(title, instructions) {
-    console.log(title, instructions);
+  editAssignment(id, title, instructions) {
+    fetch(`https://fastback-mobile-server.herokuapp.com/api/assignment/${id}`, {
+      method:"PUT",
+      body:JSON.stringify({
+        assignment:{
+          title:title,
+          instructions:instructions
+        }
+      }),
+      headers:new Headers({
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token")
+      })
+    }).then(this.getAssignments())
   },
 
   deleteAssignment(id) {
@@ -58,9 +70,5 @@ export default Service.extend({
     })
       .then(res => res.json())
       .then(this.getAssignments());
-  },
-
-  empty() {
-    this.assignments.clear();
   }
 });

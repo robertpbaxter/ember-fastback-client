@@ -6,7 +6,6 @@ export default Component.extend({
       this.set("confirmShown", true);
     },
     submitConfirm() {
-      //trigger parent component action
       this.onConfirm();
     },
     cancelConfirm() {
