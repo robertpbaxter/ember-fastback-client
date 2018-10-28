@@ -1,12 +1,18 @@
 import Service from "@ember/service";
 
 export default Service.extend({
-  assignments: [],
-  newAssignment: {},
-  updateAssignment: {},
+  assignments: null,
+  // newAssignment: {},
+  // updateAssignment: {},
+
+  newTitle: "",
+  newInstructions: "",
+  updatedTitle: "",
+  updatedInstructions: "",
 
   init() {
     this._super(...arguments);
+    this.set("assignments", []);
   },
 
   getAssignments() {
@@ -23,29 +29,26 @@ export default Service.extend({
         .then(res => res.json())
         .then(assignmentData => {
           this.set("assignments", assignmentData);
-          console.log(assignmentData);
-          console.log(this.assignments);
         });
     }
   },
 
-  addAssignment() {
+  addAssignment(title, instructions) {
     fetch(`https://fastback-mobile-server.herokuapp.com/api/assignment/new`, {
       method: "POST",
-      body: JSON.stringify({ assignment: this.newAssignment }),
+      body: JSON.stringify({
+        assignment: {
+          title: title,
+          instructions: instructions
+        }
+      }),
       headers: new Headers({
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
       })
     })
       .then(res => res.json())
-      .then(assignmentData => {
-        console.log(assignmentData);
-        // assignmentData.error
-        //   ? (alert.innerText = "An error has occurred")
-        //   : this.props.updateAssignmentsArray();
-        // this.setState({ title: "", instructions: "" }); // No need to clear the problem set value
-      });
+      .then(this.getAssignments());
   },
 
   editAssignment() {},

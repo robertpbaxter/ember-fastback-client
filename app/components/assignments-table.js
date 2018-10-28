@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 
 export default Component.extend({
   //loads the service in file /app/services/assignments
-  list: service("assignments"),
+  assignmentService: service("assignments"),
 
   init() {
     this._super(...arguments);
@@ -11,6 +11,6 @@ export default Component.extend({
   },
 
   fetchAssignments() {
-    this.list.getAssignments();
+    this.assignmentService.getAssignments();
   }
 });
