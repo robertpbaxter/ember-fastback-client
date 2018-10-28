@@ -28,16 +28,9 @@ export default Controller.extend({
             alert("Username or password invalid");
           } else {
             localStorage.setItem("token", data.sessionToken);
-            this.store.createRecord("login", {
-              id: data.id,
-              firstName: data.firstName,
-              lastName: data.lastName,
-              permission: data.permission,
-              sessionToken: data.token
-            });
             this.transitionToRoute("assignments");
-            this.email = "";
-            this.password = "";
+            this.set("email", "");
+            this.set("password", "");
           }
         });
     }

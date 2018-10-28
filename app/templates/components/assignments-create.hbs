@@ -1,0 +1,11 @@
+<div class='assignmentCreate'>
+  <form>
+    <label>Title:
+      {{input type='text' value=title placeholder='enter title'}}
+    </label>
+    <label>Instructions:
+      {{input type='textarea' value=instructions placeholder='enter instructions'}}
+    </label>
+    <button type='submit' {{action "create"}}>Create</button>
+  </form>
+</div>

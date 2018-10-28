@@ -9,13 +9,13 @@ body {
 
 /* Navbar */
 .navbar {
-  height: 2rem;
   padding: 0.5em;
   background-color: #31d57c;
 }
 
 .menu .links a,
 .menu .links a:visited {
+  padding-right: 2rem;
   color: #ffffff;
   font-size: 1.5em;
   text-decoration: none;
@@ -26,6 +26,9 @@ body {
 }
 
 /* Body */
+.body {
+  padding: 2rem;
+}
 
 /* Footer */
 
