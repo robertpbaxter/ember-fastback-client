@@ -1,0 +1,10 @@
+<button {{action "launchConfirmDialog"}}>{{text}}</button>
+{{#if confirmShown}}
+<div class="confirm-dialog">
+  {{warning}}
+  <div class="confirm-buttons">
+    <button class="confirm-submit" {{action "submitConfirm"}}>Ok</button>
+    <button class="confirm-cancel" {{action "cancelConfirm"}}>Cancel</button>
+  </div>
+</div>
+{{/if}}

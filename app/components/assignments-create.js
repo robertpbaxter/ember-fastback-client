@@ -6,9 +6,6 @@ export default Component.extend({
   newTitle: "",
   newInstructions: "",
 
-  // init(){
-  //   this._super(...arguments)
-  // }
   actions: {
     addAssignment() {
       this.assignmentService.addAssignment(this.newTitle, this.newInstructions);

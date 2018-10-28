@@ -12,5 +12,11 @@ export default Component.extend({
 
   fetchAssignments() {
     this.assignmentService.getAssignments();
+  },
+
+  actions: {
+    deleteAssignment(id) {
+      this.assignmentService.deleteAssignment(id);
+    }
   }
 });
