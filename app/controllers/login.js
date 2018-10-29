@@ -1,12 +1,9 @@
 import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 
 export default Controller.extend({
   email: "",
   password: "",
-
-  init() {
-    this._super(...arguments);
-  },
 
   actions: {
     login() {
@@ -14,8 +11,8 @@ export default Controller.extend({
         method: "POST",
         body: JSON.stringify({
           user: {
-            email: this.email,
-            password: this.password
+            email: this.email.trim().toLowerCase(),
+            password: this.password.trim()
           }
         }),
         headers: new Headers({

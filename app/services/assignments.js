@@ -9,21 +9,17 @@ export default Service.extend({
   },
 
   getAssignments() {
-    if (localStorage.getItem("token") === null) {
-      this.transitionToRoute("login");
-    } else {
-      fetch(`https://fastback-mobile-server.herokuapp.com/api/assignment`, {
-        method: "GET",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Authorization: localStorage.getItem("token")
-        })
+    fetch(`https://fastback-mobile-server.herokuapp.com/api/assignment`, {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token")
       })
-        .then(res => res.json())
-        .then(assignmentData => {
-          this.set("assignments", assignmentData);
-        });
-    }
+    })
+      .then(res => res.json())
+      .then(assignmentData => {
+        this.set("assignments", assignmentData);
+      });
   },
 
   addAssignment(title, instructions) {
@@ -46,18 +42,18 @@ export default Service.extend({
 
   editAssignment(id, title, instructions) {
     fetch(`https://fastback-mobile-server.herokuapp.com/api/assignment/${id}`, {
-      method:"PUT",
-      body:JSON.stringify({
-        assignment:{
-          title:title,
-          instructions:instructions
+      method: "PUT",
+      body: JSON.stringify({
+        assignment: {
+          title: title,
+          instructions: instructions
         }
       }),
-      headers:new Headers({
+      headers: new Headers({
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
       })
-    }).then(this.getAssignments())
+    }).then(this.getAssignments());
   },
 
   deleteAssignment(id) {
