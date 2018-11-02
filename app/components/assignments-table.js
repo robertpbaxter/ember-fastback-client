@@ -14,8 +14,8 @@ export default Component.extend({
   },
 
   actions: {
-    editAssignment(id,title,instructions){
-      this.assignmentService.editAssignment(id,title,instructions)
+    editAssignment(id, title, instructions) {
+      this.assignmentService.editAssignment(id, title, instructions);
     },
     deleteAssignment(id) {
       this.assignmentService.deleteAssignment(id);
