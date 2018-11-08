@@ -1,10 +1,14 @@
-<h2>Welcome to my weekend experiment!</h2>
+<h2>About this app:</h2>
 
-<p>This app is the product of a weekend endeavour to learn the Ember.js framework and reproduce a client for an
-  existing web API. The app connects as an
-  instructor to the back end for my existing <a href="https://fastback-mobile-feedback.herokuapp.com/" target="_blank">React
-    Project.</a></p>
+<p>This app is the result of an experiment in self learning. During an atypical weekend without any obligations or
+  pressing projects, I decided to explore the Ember.js documentation and emulate the teaching interface of my recent
+  full stack <a href="https://fastback-mobile-feedback.herokuapp.com/" target="_blank">React Project</a>.</p>
 
-<p>Feel free to log in, create, edit, or delete items with the following credentials:</p>
-<p>Email: 1@1</p>
-<p>Password: 1</p>
+<p>There isn't much styling, yet this app offers a page for creating, reading, updating, and deleting assignments that
+  students would complete (in a separate interface). This page and the {{#link-to "index"}}home{{/link-to}} are
+  publicly visible, yet attempting to access the {{#link-to "assignments"}}assignments{{/link-to}} page without a
+  session token will redirect you to the login page. Feel free to either {{#link-to "signup"}}create an
+  account{{/link-to}} or {{#link-to "login"}}log in{{/link-to}} with sample credentials.</p>
+
+<p>Email: instructor@instructor.com</p>
+<p>Password: instructor</p>

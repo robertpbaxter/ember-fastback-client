@@ -2,16 +2,22 @@
 {{#if editShown}}
 <div class="assignmentEdit">
   <form>
+    <br>
     <label>
       Title:
+      <br>
       {{input value=updatedTitle}}
     </label>
+    <br>
     <label>
       Instructions:
-      {{textarea value=updatedInstructions}}
+      <br>
+      {{textarea rows=10 value=updatedInstructions}}
     </label>
+    <br>
     <button type="submit" {{action "editAssignment"}}>Update</button>
     <button {{action "closeEditForm"}}>Cancel</button>
   </form>
 </div>
+<br>
 {{/if}}

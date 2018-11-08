@@ -2,13 +2,13 @@
   <h1>New Assignment:</h1>
   <form>
     <label>
-      Title:
+      Title: <br>
       {{input value=newTitle placeholder="enter title"}}
-    </label>
+    </label> <br>
     <label>
-      Instructions:
+      Instructions: <br>
       {{textarea value=newInstructions placeholder="enter instructions"}}
-    </label>
+    </label> <br>
     <button type="submit" {{action "addAssignment"}}>Create</button>
   </form>
 </div>

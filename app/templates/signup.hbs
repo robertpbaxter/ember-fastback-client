@@ -1,23 +1,29 @@
 <form {{action "signup" on='submit'}}>
   <label>
     First name:
-    {{input type="text" value=firstName placeholder="enter email"}}
+    {{input type="text" value=firstName placeholder="enter first name"}}
   </label>
+  <br>
   <label>
     Last name:
-    {{input type="text" value=lastName placeholder="enter email"}}
+    {{input type="text" value=lastName placeholder="enter last name"}}
   </label>
+  <br>
   <label>
     Email:
     {{input type="email" value=email placeholder="enter email"}}
   </label>
+  <br>
   <label>
     Password:
     {{input type="password" value=password placeholder="enter password"}}
   </label>
+  <br>
   <label>
     Password:
     {{input type="password" value=confirmPassword placeholder="confirm password"}}
   </label>
+  <br>
   <button type="submit">Submit</button>
+  <p>Already a user? {{#link-to "login"}}Log in{{/link-to}}</p>
 </form>
