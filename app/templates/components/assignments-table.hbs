@@ -2,15 +2,21 @@
 
 <ul>
   {{#each assignmentService.assignments as |assignment|}}
-  <li>
-    <p>Title: {{assignment.title}}</p>
-    <p>Instructions:{{assignment.instructions}}</p>
+    <li>
+      <p>Title: {{assignment.title}}</p>
+      <p>Instructions:{{assignment.instructions}}</p>
 
-    {{assignments-edit updatedTitle=assignment.title updatedInstructions=assignment.instructions edit=(action
-    "editAssignment" assignment.id)}}
+      {{assignments-edit 
+        updatedTitle=assignment.title 
+        updatedInstructions=assignment.instructions 
+        edit=(action "editAssignment" assignment.id)
+      }}
 
-    {{button-with-confirmation warning="Are you sure you want to delete this assignment?" text='Delete'
-    onConfirm=(action "deleteAssignment" assignment.id)}}
-  </li>
+      {{button-with-confirmation 
+        warning="Are you sure you want to delete this assignment?" 
+        text="Delete" 
+        onConfirm=(action "deleteAssignment" assignment.id)
+      }}
+    </li>
   {{/each}}
 </ul>
