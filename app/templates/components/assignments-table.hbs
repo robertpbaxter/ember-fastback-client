@@ -2,9 +2,9 @@
 
 <ul>
   {{#each assignmentService.assignments as |assignment|}}
-    <li>
-      <p>Title: {{assignment.title}}</p>
-      <p>Instructions:{{assignment.instructions}}</p>
+    <li class="details">
+      <p class="title">Title: {{assignment.title}}</p>
+      <p class="instructions">Instructions: {{assignment.instructions}}</p>
 
       {{assignments-edit 
         updatedTitle=assignment.title 

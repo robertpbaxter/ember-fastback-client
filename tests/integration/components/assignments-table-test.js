@@ -1,26 +1,39 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
+import Service from "@ember/service";
 
-module('Integration | Component | assignments-table', function(hooks) {
+module("Integration | Component | assignments-table", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  const assignmentStub = Service.extend({
+    assignments: [
+      {
+        title: "test-title",
+        instructions: "test-instructions"
+      }
+    ],
+    getAssignments() {
+      return this.assignments;
+    }
+  });
 
+  hooks.beforeEach(function() {
+    this.owner.register("service:assignments", assignmentStub);
+  });
+
+  test("should display assignment details", async function(assert) {
     await render(hbs`{{assignments-table}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#assignments-table}}
-        template block text
-      {{/assignments-table}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(
+      this.element.querySelector(".title").textContent.trim(),
+      "Title: test-title",
+      "Title should show 'Title: test-title'"
+    );
+    assert.equal(
+      this.element.querySelector(".instructions").textContent.trim(),
+      "Instructions: test-instructions",
+      "Instructions should show 'Instructions: test-instructions'"
+    );
   });
 });
