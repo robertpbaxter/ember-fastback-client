@@ -1,9 +1,9 @@
-<button {{action "openEditForm"}}>Edit</button>
+<button class="toggleForm" {{action "openEditForm"}}>Edit</button>
 {{#if editShown}}
   <div class="assignmentEdit">
     <form>
       <br>
-      <label>
+      <label class="editTitle">
         Title:
         <br>
         {{input value=updatedTitle}}
@@ -15,8 +15,8 @@
         {{textarea rows=10 value=updatedInstructions}}
       </label>
       <br>
-      <button type="submit" {{action "editAssignment"}}>Update</button>
-      <button {{action "closeEditForm"}}>Cancel</button>
+      <button id="submit" type="submit" {{action "editAssignment"}}>Update</button>
+      <button id="cancel" {{action "closeEditForm"}}>Cancel</button>
     </form>
   </div>
   <br>

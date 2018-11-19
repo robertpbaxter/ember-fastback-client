@@ -1,26 +1,29 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render, click } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | assignments-edit', function(hooks) {
+module("Integration | Component | assignments-edit", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test("should display an edit button", async function(assert) {
     await render(hbs`{{assignments-edit}}`);
+    assert.equal(
+      this.element.querySelector(".toggleForm").textContent.trim(),
+      "Edit"
+    );
+    await click(".toggleForm");
+    assert.ok(
+      this.element.querySelector(".assignmentEdit"),
+      "renders the editing window"
+    );
+  });
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#assignments-edit}}
-        template block text
-      {{/assignments-edit}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+  test("should not render an editing window at first", async function(assert) {
+    await render(hbs`{{assignements-edit}}`);
+    assert.notOk(
+      this.element.querySelector(".assignmentEdit"),
+      "initially closed"
+    );
   });
 });

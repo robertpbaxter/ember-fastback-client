@@ -4,20 +4,20 @@ import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 import Service from "@ember/service";
 
+const assignmentStub = Service.extend({
+  assignments: [
+    {
+      title: "test-title",
+      instructions: "test-instructions"
+    }
+  ],
+  getAssignments() {
+    return this.assignments;
+  }
+});
+
 module("Integration | Component | assignments-table", function(hooks) {
   setupRenderingTest(hooks);
-
-  const assignmentStub = Service.extend({
-    assignments: [
-      {
-        title: "test-title",
-        instructions: "test-instructions"
-      }
-    ],
-    getAssignments() {
-      return this.assignments;
-    }
-  });
 
   hooks.beforeEach(function() {
     this.owner.register("service:assignments", assignmentStub);
