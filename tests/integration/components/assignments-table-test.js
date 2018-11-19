@@ -5,12 +5,15 @@ import hbs from "htmlbars-inline-precompile";
 import Service from "@ember/service";
 
 const assignmentStub = Service.extend({
-  assignments: [
-    {
-      title: "test-title",
-      instructions: "test-instructions"
-    }
-  ],
+  init() {
+    this._super(...arguments);
+    this.assignments = [
+      {
+        title: "test-title",
+        instructions: "test-instructions"
+      }
+    ];
+  },
   getAssignments() {
     return this.assignments;
   }
